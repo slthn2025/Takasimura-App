@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Activity.Login">
+
+    <!-- Background -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_gradient" />
+
+    <!-- Gambar di Tengah Atas -->
+    <ImageView
+        android:id="@+id/onBoardImage"
+        android:layout_width="93dp"
+        android:layout_height="93dp"
+        android:src="@drawable/log_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/takasimuraText"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="20dp"
+        />
+
+    <!-- Teks di Bawah Gambar -->
+    <TextView
+        android:id="@+id/takasimuraText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/logTitle"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/Dark2"
+        app:layout_constraintTop_toBottomOf="@+id/onBoardImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Form Login -->
+    <LinearLayout
+        android:id="@+id/loginForm"
+        android:layout_width="match_parent"
+        android:layout_height="630dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/form_background"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Title Text -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Register"
+            android:textColor="@color/Dark2"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:textSize="27sp"
+            android:textStyle="bold" />
+
+        <!-- Subtitle Text -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="@string/register_subtitle"
+            android:layout_gravity="center"
+            android:textColor="@color/Dark2"
+            android:textSize="15sp" />
+
+        <!-- username Input-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/username"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/Dark2"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/usernameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:hint="@string/username_hint"
+            app:boxBackgroundMode="none">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_border"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:inputType="text"
+                android:drawableEnd="@drawable/ic_username"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+              <!--email input-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/email_label"
+            android:textColor="@color/Dark2"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:hint="@string/email_hint"
+            app:boxBackgroundMode="none">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_border"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:inputType="textEmailAddress"
+                android:drawableEnd="@drawable/ic_mail" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Password Label -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/password_label"
+            android:textColor="@color/Dark2"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Password Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:endIconMode="password_toggle"
+            android:hint="@string/password"
+            app:boxBackgroundMode="none"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:background="@drawable/edit_text_border"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <!-- Container untuk kedua tombol -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal"
+            >
+
+            <!-- Tombol Pertama -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardRegisterButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="50dp"
+                android:elevation="5dp"
+                app:cardBackgroundColor="#FFFF"
+                app:cardUseCompatPadding="false"
+                app:cardPreventCornerOverlap="true">
+
+                <Button
+                    android:id="@+id/registerButton"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/custom_button"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:padding="5dp"
+                    android:text="@string/daftar"
+                    android:textColor="@color/Dark2"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- Tambahkan jarak antar tombol -->
+            <View
+                android:layout_width="30dp"
+                android:layout_height="match_parent" />
+
+            <!-- Tombol Kedua -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardCancelButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="50dp"
+                android:elevation="5dp"
+                app:cardBackgroundColor="#FFFF"
+                app:cardUseCompatPadding="false"
+                app:cardPreventCornerOverlap="true">
+
+                <Button
+                    android:id="@+id/cancelButton"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/custom_button"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:padding="6dp"
+                    android:text="@string/cancel"
+                    android:textColor="@color/Dark2"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/registerGoogleCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="50dp"
+            android:elevation="5dp"
+            android:layout_gravity="center"
+            app:cardBackgroundColor="#FFFF"
+            app:cardUseCompatPadding="false"
+            app:cardPreventCornerOverlap="true"
+            >
+
+            <Button
+                android:id="@+id/registerGoogleButton"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/custom_button"
+                android:fontFamily="@font/poppins_bold"
+                android:padding="7dp"
+                android:text="@string/masuk_dengan_google"
+                android:textColor="@color/Dark2"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/cardImage"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="105dp"
+                android:src="@drawable/google_icon"
+                android:contentDescription="@string/icon_description" />
+        </androidx.cardview.widget.CardView>
+
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

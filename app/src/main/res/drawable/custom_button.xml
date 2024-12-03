@@ -1,0 +1,10 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background transparan -->
+    <solid android:color="@android:color/transparent" />
+
+    <!-- Radius sudut -->
+    <corners android:radius="50dp" />
+
+    <!-- Border warna Main -->
+    <stroke android:width="5dp" android:color="@color/Main" />
+</shape>

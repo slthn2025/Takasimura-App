@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/dompet_cash"
+        android:title="@string/cash"
+        android:icon="@drawable/ic_cash"
+        />
+    <item
+        android:id="@+id/dompet_digital_payment"
+        android:title="@string/digital_payment"
+        android:icon="@drawable/ic_digital_pay"
+
+        />
+</menu>

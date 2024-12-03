@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme -->
+    <style name="Base.Theme.Takasimura" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here -->
+        <item name="colorPrimary">@color/Main</item>
+        <item name="colorOnPrimary">@color/Transparant</item>
+
+
+        <!-- Background warna transparan untuk tombol dan border -->
+        <item name="android:buttonStyle">@style/CustomButtonStyle</item>
+
+    </style>
+
+    <!-- Apply theme with customizations -->
+    <style name="Theme.Takasimura" parent="Base.Theme.Takasimura" />
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/edittext_border_selector.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Border saat EditText dalam keadaan fokus -->
+    <item android:state_focused="true">
+        <shape>
+            <solid android:color="@android:color/transparent" />
+            <stroke
+                android:width="3dp"
+                android:color="@color/Dark2" /> <!-- Warna border saat fokus -->
+            <corners android:radius="10dp" />
+        </shape>
+    </item>
+
+    <!-- Border default saat EditText tidak fokus -->
+    <item>
+        <shape>
+            <solid android:color="@color/White" />
+            <stroke
+                android:width="2.5dp"
+                android:color="@color/Main" /> <!-- Warna border default -->
+
+            <corners android:radius="10dp" />
+        </shape>
+    </item>
+</selector>

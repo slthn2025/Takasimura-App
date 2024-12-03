@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Takasimura"
+        tools:targetApi="31">
+        <activity
+            android:name=".ui.Activity.Search"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Activity.Settings"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Activity.editProfile"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Activity.ScanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Activity.NoteTransaction"
+            android:configChanges="orientation|screenSize"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".ui.Activity.PinPassword"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Activity.SuccesPassword"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Activity.NewPassword"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Activity.ForgotPassword"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Activity.Register"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Activity.Login"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Activity.OnBoard"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Activity.SplashScreen"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.Activity.MainActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

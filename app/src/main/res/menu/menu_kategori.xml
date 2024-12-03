@@ -1,0 +1,40 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_makanan"
+        android:title="@string/makanan"
+        android:icon="@drawable/ic_food"
+        />
+    <item
+        android:id="@+id/menu_transportasi"
+        android:title="@string/transportasi"
+        android:icon="@drawable/ic_transportation"
+
+        />
+    <item
+        android:id="@+id/menu_hiburan"
+        android:title="@string/hiburan"
+        android:icon="@drawable/ic_holiday"
+
+        />
+    <item
+        android:id="@+id/menu_tagihan"
+        android:title="@string/tagihan"
+        android:icon="@drawable/ic_bill"
+        />
+    <item
+        android:id="@+id/menu_kesehatan"
+        android:title="@string/kesahatan"
+        android:icon="@drawable/ic_kesehatan"
+
+        />
+    <item
+        android:id="@+id/menu_pendidikan"
+        android:title="@string/pendidikan"
+        android:icon="@drawable/ic_school"
+        />
+    <item
+        android:id="@+id/menu_lainnya"
+        android:title="@string/lainnya"
+        android:icon="@drawable/ic_other"
+        />
+</menu>

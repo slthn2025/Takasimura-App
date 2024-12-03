@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Gaya tombol kustom -->
+    <style name="CustomButtonStyle">
+        <!-- Menghilangkan background default tombol -->
+        <item name="android:background">@drawable/custom_button</item>
+
+        <!-- Menambahkan warna teks putih -->
+        <item name="android:textColor">#FFFFFF</item>
+
+        <!-- Menambahkan teks tebal -->
+        <item name="android:textStyle">bold</item>
+
+        <!-- Menambahkan radius sudut -->
+        <item name="cornerRadius">12dp</item>
+
+        <!-- Menambahkan border atau garis tepi -->
+        <item name="android:strokeColor">@color/Main</item>
+        <item name="android:strokeWidth">2.0</item>
+
+        <item name="android:elevation">50dp</item>
+        <item name="android:translationZ">2dp</item>
+    </style>
+</resources>
