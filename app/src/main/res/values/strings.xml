@@ -65,4 +65,16 @@
     <string name="rp_100_000">Rp 100.000</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="notifikasi">Notifikasi</string>
+    <string name="icon_berhasil">Icon Berhasil</string>
+    <string name="registrasi_berhasil">Registrasi Berhasil</string>
+    <string name="pendaftaran_berhasil_dilakukan">Pendaftaran berhasil dilakukan!</string>
+    <string name="ok">OK</string>
+    <string name="rp_format">Rp %1$d</string>
+    <string name="balance">Balance:</string>
+    <string name="total_balance">0</string>
+    <string name="digital_payments">digital payment</string>
+    <string name="transaksi_income">Transaksi Income</string>
+    <string name="expanse">Expanse</string>
+    <string name="income">Income</string>
+
 </resources>

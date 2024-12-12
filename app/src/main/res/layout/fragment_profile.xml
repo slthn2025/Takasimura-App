@@ -50,16 +50,6 @@
             android:textSize="20sp"
             android:fontFamily="@font/poppins_semibold" />
 
-        <!-- User ID -->
-        <TextView
-            android:id="@+id/userIdText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="ID: 220057"
-            android:textColor="@color/Dark3"
-            android:textSize="16sp"
-            android:fontFamily="@font/poppins_light" />
 
         <!-- Menu Section -->
         <LinearLayout
@@ -96,29 +86,7 @@
             </LinearLayout>
 
             <!-- Settings -->
-            <LinearLayout
-                android:id="@+id/settings"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="10dp"
-                android:gravity="center_vertical">
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/ic_settings"
-                    android:background="@drawable/background_icon" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:text="Settings"
-                    android:textColor="@color/Dark3"
-                    android:textSize="28sp"
-                    android:fontFamily="@font/poppins" />
-            </LinearLayout>
 
             <!-- Logout -->
             <LinearLayout

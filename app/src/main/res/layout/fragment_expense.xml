@@ -15,7 +15,6 @@
         android:paddingBottom="40dp">
 
         <!-- Field Tanggal -->
-        <!-- Field Tanggal -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,7 +34,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-               >
+                >
 
                 <EditText
                     android:id="@+id/etTanggal"
@@ -126,30 +125,6 @@
             android:gravity="center_vertical"
             app:drawableEndCompat="@drawable/ic_dropdown" />
 
-
-        <!-- Field Upload Foto -->
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/edit_text_border">
-
-            <!-- Icon Kamera -->
-            <ImageView
-                android:id="@+id/iconCamera"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/ic_camera"
-                android:layout_gravity="center" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Upload Gambar"
-                android:layout_gravity="center"
-                android:textSize="16sp"
-                android:layout_marginTop="35dp"
-                />
-        </FrameLayout>
 
         <!-- Tombol Simpan -->
         <Button

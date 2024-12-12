@@ -6,16 +6,24 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
 import android.widget.PopupMenu
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.takasimura.R
+import com.example.takasimura.viewmodel.ExpanseViewModel
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
 class ExpenseFragment : Fragment() {
+
+    private lateinit var expanseViewModel: ExpanseViewModel
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -23,12 +31,22 @@ class ExpenseFragment : Fragment() {
         // Inflate the layout
         val view = inflater.inflate(R.layout.fragment_expense, container, false)
 
+        expanseViewModel = ViewModelProvider(this).get(ExpanseViewModel::class.java)
+
         // Find views
         val etTanggal = view.findViewById<EditText>(R.id.etTanggal)
         val tvJam = view.findViewById<TextView>(R.id.tvJam)
         val tvKategori = view.findViewById<TextView>(R.id.tvKategori)
         val tvDompet = view.findViewById<TextView>(R.id.tvDompet)
+        val etDeskripsi = view.findViewById<EditText>(R.id.etDeskripsi)
+        val etJumlah = view.findViewById<EditText>(R.id.etJumlah)
+        val btnSimpan = view.findViewById<Button>(R.id.btnSimpan)
         val calendar = Calendar.getInstance()
+
+        // Observe registrationStatus to display feedback to the user
+        expanseViewModel.registrationStatus.observe(viewLifecycleOwner) { status ->
+            Toast.makeText(requireContext(), status, Toast.LENGTH_SHORT).show()
+        }
 
         // Handle date and time picker
         etTanggal.setOnClickListener {
@@ -50,7 +68,7 @@ class ExpenseFragment : Fragment() {
                         },
                         calendar.get(Calendar.HOUR_OF_DAY),
                         calendar.get(Calendar.MINUTE),
-                        false // Use 12-hour format (AM/PM)
+                        false
                     ).show()
                 },
                 calendar.get(Calendar.YEAR),
@@ -63,89 +81,46 @@ class ExpenseFragment : Fragment() {
         tvKategori.setOnClickListener {
             val popup = PopupMenu(requireContext(), tvKategori)
             popup.menuInflater.inflate(R.menu.menu_kategori, popup.menu)
-
-            // Gunakan refleksi untuk mengaktifkan ikon
-            try {
-                val fields = popup.javaClass.getDeclaredFields()
-                for (field in fields) {
-                    if (field.name == "mPopup") {
-                        field.isAccessible = true
-                        val menuPopupHelper = field.get(popup)
-                        val classPopupHelper = Class.forName(menuPopupHelper.javaClass.name)
-                        val setForceIcons = classPopupHelper.getMethod("setForceShowIcon", Boolean::class.java)
-                        setForceIcons.invoke(menuPopupHelper, true)
-                        break
-                    }
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-
-            // Set listener untuk item menu
             popup.setOnMenuItemClickListener { item ->
-                tvKategori.text = item.title 
-
-                // Ambil ikon dari item menu yang dipilih
-                val icon = item.icon
-                if (icon != null) {
-                    val tintColor = requireContext().getColor(R.color.Main)
-                    icon.setTint(tintColor)
-
-                    tvKategori.setCompoundDrawablesWithIntrinsicBounds(null, null, icon, null)
-                } else {
-                    // Jika tidak ada ikon, hapus drawable
-                    tvKategori.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null)
-                }
-
+                tvKategori.text = item.title
                 true
             }
-
             popup.show()
         }
-        // Handle category dropdown
+
+        // Handle wallet dropdown
         tvDompet.setOnClickListener {
-            val popup = PopupMenu(requireContext(), tvKategori)
+            val popup = PopupMenu(requireContext(), tvDompet)
             popup.menuInflater.inflate(R.menu.menu_dompet, popup.menu)
-
-            // Gunakan refleksi untuk mengaktifkan ikon
-            try {
-                val fields = popup.javaClass.getDeclaredFields()
-                for (field in fields) {
-                    if (field.name == "mPopup") {
-                        field.isAccessible = true
-                        val menuPopupHelper = field.get(popup)
-                        val classPopupHelper = Class.forName(menuPopupHelper.javaClass.name)
-                        val setForceIcons = classPopupHelper.getMethod("setForceShowIcon", Boolean::class.java)
-                        setForceIcons.invoke(menuPopupHelper, true)
-                        break
-                    }
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-
-            // Set listener untuk item menu
             popup.setOnMenuItemClickListener { item ->
                 tvDompet.text = item.title
-
-                // Ambil ikon dari item menu yang dipilih
-                val icon = item.icon
-                if (icon != null) {
-                    val tintColor = requireContext().getColor(R.color.Main)
-                    icon.setTint(tintColor)
-
-                    tvDompet.setCompoundDrawablesWithIntrinsicBounds(null, null, icon, null)
-                } else {
-                    // Jika tidak ada ikon, hapus drawable
-                    tvDompet.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null)
-                }
-
                 true
             }
-
-            popup.show() // Tampilkan PopupMenu
+            popup.show()
         }
-        // Return the view
+
+        // Handle save button click
+        btnSimpan.setOnClickListener {
+            val date = etTanggal.text.toString()
+            val time = tvJam.text.toString()
+            val amount = etJumlah.text.toString().toIntOrNull()
+            val description = etDeskripsi.text.toString()
+            val wallet = tvDompet.text.toString()
+            val category = tvKategori.text.toString()
+
+            if (date.isNotEmpty() && time.isNotEmpty() && amount != null && description.isNotEmpty() && wallet.isNotEmpty() && category.isNotEmpty()) {
+                expanseViewModel.expanse(
+                    date = "$date $time",
+                    amount = amount,
+                    description = description,
+                    wallet = wallet,
+                    category = category
+                )
+            } else {
+                Toast.makeText(requireContext(), "Mohon lengkapi semua inputan.", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         return view
     }
 }

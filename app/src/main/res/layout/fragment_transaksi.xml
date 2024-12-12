@@ -1,71 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.Fragment.Transaksi">
 
-    <!-- ImageView untuk Banner -->
-    <ImageView
-        android:id="@+id/emptyListBanner"
-        android:layout_width="153dp"
-        android:layout_height="141dp"
-        android:foregroundGravity="center"
-        android:layout_marginTop="150dp"
-        android:contentDescription="@string/baneer_main"
-        android:src="@drawable/home_page_ic"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Title Text -->
-    <TextView
-        android:id="@+id/titleMainText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:padding="2dp"
-        android:gravity="center"
-        android:layout_marginStart="8dp"
-        android:text="@string/Empty_list_title"
-        android:textColor="@color/Dark3"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@id/emptyListBanner"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Subtitle Text -->
-    <TextView
-        android:id="@+id/subtitleMainText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:gravity="center"
-        android:padding="2dp"
-        android:layout_marginStart="8dp"
-        android:text="@string/subtitle_main_text"
-        android:textColor="@color/Dark3"
-        android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/titleMainText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Floating Action Button -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="16dp"
-        android:foregroundGravity="center"
-        android:contentDescription="@string/add_button"
-        app:layout_constraintTop_toBottomOf="@id/subtitleMainText"
-        app:layout_constraintStart_toStartOf="parent"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:backgroundTint="@color/Main"
-        app:srcCompat="@drawable/ic_add"
-        android:elevation="6dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,5 +34,10 @@ class OnBoard : AppCompatActivity() {
             startActivity(intent)
             finish() // Opsional: Menutup SplashScreen agar tidak kembali saat tombol "back" ditekan
         }
+
+    }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity()  // Menutup aplikasi dengan keluar dari semua aktivitas yang ada di belakangnya
     }
 }

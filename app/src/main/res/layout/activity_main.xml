@@ -8,7 +8,7 @@
     android:background="@color/White"
     tools:context=".ui.Activity.MainActivity">
 
-    <!-- Top Bar -->
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/topBar"
         android:layout_width="0dp"
@@ -28,7 +28,7 @@
             android:orientation="vertical"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:padding="10dp"
+            android:padding="5dp"
             android:layout_marginStart="10dp">
 
             <!-- Baris User dan Ikon Down -->
@@ -54,12 +54,12 @@
 
                 <!-- Ikon Down -->
                 <ImageView
-                    android:id="@+id/icondown"
+                    android:id="@+id/imgProfile"
                     android:layout_width="15dp"
                     android:layout_height="15dp"
-                    android:layout_marginBottom="1dp"
-                    android:layout_marginTop="2dp"
                     android:layout_gravity="center_vertical"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="1dp"
                     android:contentDescription="@string/b_down"
                     android:src="@drawable/down" />
 
@@ -68,7 +68,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="0dp"
-                    android:layout_marginStart="150dp"
+                    android:layout_marginStart="95dp"
                     android:layout_gravity="center_horizontal">
 
                     <!-- Ikon Edit -->
@@ -80,7 +80,14 @@
                         android:layout_gravity="end|center_horizontal"
                         android:contentDescription="@string/scan"
                         android:src="@drawable/ic_edit" />
-
+                    <ImageView
+                        android:id="@+id/addTransaction"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_gravity="end|center_horizontal"
+                        android:contentDescription="@string/search"
+                        android:src="@drawable/ic_add_transaction" />
                     <ImageView
                         android:id="@+id/iconSearch"
                         android:layout_width="24dp"
@@ -108,16 +115,27 @@
                     android:layout_height="24dp"
                     android:contentDescription="@string/ic_wallet"
                     android:src="@drawable/wallet" />
-
-                <!-- Teks Wallet -->
                 <TextView
                     android:id="@+id/walletText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:padding="2dp"
-                    android:layout_marginStart="8dp"
-                    android:text="@string/dummy_data"
+
+                    android:text="@string/balance"
+                    android:textColor="@color/Dark3"
+                    android:textStyle="bold"
+                    android:textSize="12sp" />
+
+                <!-- Teks Wallet -->
+                <TextView
+                    android:id="@+id/Balance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:padding="2dp"
+                    android:layout_marginStart="2dp"
+                    android:text="@string/total_balance"
                     android:textColor="@color/Dark3"
                     android:textStyle="bold"
                     android:textSize="12sp" />

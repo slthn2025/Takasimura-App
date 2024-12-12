@@ -47,7 +47,7 @@
             android:padding="10dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/circle_background"
-            android:src="@drawable/ic_digital_pay" />
+            android:src="@drawable/ic_edit_profiles" />
 
         <!-- Username -->
         <TextView
@@ -134,13 +134,13 @@
 
         <!-- Password Input -->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/confirmPasswordLayout"
+            android:id="@+id/PasswordLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:endIconMode="password_toggle"
             android:hint="@string/verifikasi_password">
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/confirmPassword"
+                android:id="@+id/Password"
                 android:layout_width="match_parent"
                 android:background="@drawable/edit_text_border"
                 android:layout_height="wrap_content"

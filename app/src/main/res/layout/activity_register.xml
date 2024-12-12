@@ -45,7 +45,7 @@
     <LinearLayout
         android:id="@+id/loginForm"
         android:layout_width="match_parent"
-        android:layout_height="630dp"
+        android:layout_height="550dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/form_background"
         android:orientation="vertical"
@@ -161,6 +161,17 @@
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <ProgressBar
+            android:id="@+id/loadingProgressBar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:indeterminate="true"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large" />
+
+
 
         <!-- Container untuk kedua tombol -->
         <LinearLayout
@@ -240,27 +251,7 @@
             app:cardPreventCornerOverlap="true"
             >
 
-            <Button
-                android:id="@+id/registerGoogleButton"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/custom_button"
-                android:fontFamily="@font/poppins_bold"
-                android:padding="7dp"
-                android:text="@string/masuk_dengan_google"
-                android:textColor="@color/Dark2"
-                android:textSize="15sp"
-                android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/cardImage"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="105dp"
-                android:src="@drawable/google_icon"
-                android:contentDescription="@string/icon_description" />
         </androidx.cardview.widget.CardView>
 
 
