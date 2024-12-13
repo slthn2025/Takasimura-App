@@ -125,6 +125,15 @@
             android:gravity="center_vertical"
             app:drawableEndCompat="@drawable/ic_dropdown" />
 
+        <ProgressBar
+            android:id="@+id/loadingProgressBar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:indeterminate="true"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large" />
+
 
         <!-- Tombol Simpan -->
         <Button

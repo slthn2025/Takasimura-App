@@ -1,13 +1,17 @@
 package com.example.takasimura.ui.Activity
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -25,6 +29,7 @@ class editProfile : AppCompatActivity() {
 
     private val editProfileViewModel: EditProfileViewModel by viewModels()
     private val profileViewModel: ProfileViewModel by viewModels()
+    private lateinit var progressBar: ProgressBar
 
     private var selectedImageUri: Uri? = null
     private var originalImageUri: Uri? = null // Variabel untuk menyimpan gambar profil asli
@@ -57,6 +62,7 @@ class editProfile : AppCompatActivity() {
         val emailInput = findViewById<EditText>(R.id.email)
         val passwordInput = findViewById<EditText>(R.id.Password)
         val saveButton = findViewById<Button>(R.id.changePasswordButton)
+        val progressBar = findViewById<ProgressBar>(R.id.loadingProgressBar)
 
         // Tombol kembali
         backIcon.setOnClickListener {
@@ -66,7 +72,7 @@ class editProfile : AppCompatActivity() {
         // Observasi hasil edit profil
         editProfileViewModel.editProfileResult.observe(this, Observer { responseProfile ->
             if (responseProfile != null) {
-                Toast.makeText(this, "Profil berhasil diperbarui!", Toast.LENGTH_SHORT).show()
+                showSuccessDialog()
                 finish() // Kembali ke layar sebelumnya
             }
         })
@@ -154,5 +160,37 @@ class editProfile : AppCompatActivity() {
             return false
         }
         return true
+    }
+
+    private fun showSuccessDialog() {
+        progressBar.visibility = View.GONE
+        // Inflate custom layout
+        val dialogView = layoutInflater.inflate(R.layout.custom_dialog, null)
+
+        // Buat AlertDialog Builder
+        val builder = androidx.appcompat.app.AlertDialog.Builder(this)
+        builder.setView(dialogView)
+
+        // Temukan elemen di layout dialog
+        val dialogTitle = dialogView.findViewById<TextView>(R.id.dialogTitle)
+        val dialogMessage = dialogView.findViewById<TextView>(R.id.dialogMessage)
+        val okButton = dialogView.findViewById<Button>(R.id.okButton)
+
+        // Set teks pada elemen dialog
+        dialogMessage.text = "Profile Berhasil Di Ubah"
+
+        // Set tombol "OK" untuk melanjutkan
+        val dialog = builder.create()
+        okButton.setOnClickListener {
+            dialog.dismiss() // Tutup dialog
+
+            // Arahkan ke layar berikutnya
+            val intent = Intent(this, Login::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        // Tampilkan dialog
+        dialog.show()
     }
 }

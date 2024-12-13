@@ -159,6 +159,15 @@
             app:cardUseCompatPadding="false"
             app:cardPreventCornerOverlap="true">
 
+            <ProgressBar
+                android:id="@+id/loadingProgressBar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:indeterminate="true"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large" />
+
             <Button
                 android:id="@+id/changePasswordButton"
                 android:layout_width="350dp"

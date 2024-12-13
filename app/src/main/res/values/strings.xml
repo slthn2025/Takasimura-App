@@ -76,5 +76,8 @@
     <string name="transaksi_income">Transaksi Income</string>
     <string name="expanse">Expanse</string>
     <string name="income">Income</string>
+    <string name="aktivitas_berhasil">Aktivitas Berhasil</string>
+    <string name="aktivitas_anda_berhasil_dilakukan">Aktivitas Anda Berhasil Dilakukan!</string>
+    <string name="success_desc">success desc</string>
 
 </resources>

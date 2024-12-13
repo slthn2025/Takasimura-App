@@ -10,26 +10,26 @@
         android:id="@+id/dialogTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/registrasi_berhasil"
+        android:text="@string/aktivitas_berhasil"
         android:textAppearance="?attr/textAppearanceHeadline6"
         android:textColor="@color/Dark3"
         android:layout_gravity="center_horizontal" />
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottieAnimation"
+    <ImageView
+        android:id="@+id/imageSuccess"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:lottie_rawRes="@raw/animation_success"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="false"
+        android:src="@drawable/success"
         android:layout_gravity="center"
-        />
+        android:contentDescription="@string/success_desc"
+    />
+
 
     <TextView
         android:id="@+id/dialogMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/pendaftaran_berhasil_dilakukan"
+        android:text="@string/aktivitas_anda_berhasil_dilakukan"
         android:paddingTop="8dp"
         android:textAppearance="?attr/textAppearanceBody1"
         android:layout_gravity="center_horizontal" />

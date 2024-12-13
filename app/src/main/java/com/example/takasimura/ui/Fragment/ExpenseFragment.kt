@@ -2,6 +2,7 @@ package com.example.takasimura.ui.Fragment
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,11 +10,13 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.PopupMenu
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.takasimura.R
+import com.example.takasimura.ui.Activity.MainActivity
 import com.example.takasimura.viewmodel.ExpanseViewModel
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -22,6 +25,7 @@ import java.util.Locale
 class ExpenseFragment : Fragment() {
 
     private lateinit var expanseViewModel: ExpanseViewModel
+
 
 
     override fun onCreateView(
@@ -41,10 +45,13 @@ class ExpenseFragment : Fragment() {
         val etDeskripsi = view.findViewById<EditText>(R.id.etDeskripsi)
         val etJumlah = view.findViewById<EditText>(R.id.etJumlah)
         val btnSimpan = view.findViewById<Button>(R.id.btnSimpan)
+        val progressBar = view.findViewById<ProgressBar>(R.id.loadingProgressBar)
         val calendar = Calendar.getInstance()
 
         // Observe registrationStatus to display feedback to the user
         expanseViewModel.registrationStatus.observe(viewLifecycleOwner) { status ->
+            progressBar.visibility = View.GONE
+            showSuccessDialog()
             Toast.makeText(requireContext(), status, Toast.LENGTH_SHORT).show()
         }
 
@@ -107,6 +114,7 @@ class ExpenseFragment : Fragment() {
             val description = etDeskripsi.text.toString()
             val wallet = tvDompet.text.toString()
             val category = tvKategori.text.toString()
+            progressBar.visibility = View.VISIBLE
 
             if (date.isNotEmpty() && time.isNotEmpty() && amount != null && description.isNotEmpty() && wallet.isNotEmpty() && category.isNotEmpty()) {
                 expanseViewModel.expanse(
@@ -123,4 +131,36 @@ class ExpenseFragment : Fragment() {
 
         return view
     }
+
+    private fun showSuccessDialog() {
+        // Inflate custom layout
+        val dialogView = layoutInflater.inflate(R.layout.custom_dialog, null)
+
+        // Buat AlertDialog Builder
+        val builder = androidx.appcompat.app.AlertDialog.Builder(requireContext())
+        builder.setView(dialogView)
+
+        // Temukan elemen di layout dialog
+        val dialogTitle = dialogView.findViewById<TextView>(R.id.dialogTitle)
+        val dialogMessage = dialogView.findViewById<TextView>(R.id.dialogMessage)
+        val okButton = dialogView.findViewById<Button>(R.id.okButton)
+
+        // Set teks pada elemen dialog
+        dialogMessage.text = "Pengeluaran berhasil disimpan."
+
+        // Set tombol "OK" untuk melanjutkan
+        val dialog = builder.create()
+        okButton.setOnClickListener {
+            dialog.dismiss() // Tutup dialog
+
+            // Opsional: Navigasi ke aktivitas lain jika diperlukan
+             val intent = Intent(requireContext(), MainActivity::class.java)
+             startActivity(intent)
+             requireActivity().finish()
+        }
+
+        // Tampilkan dialog
+        dialog.show()
+    }
+
 }
